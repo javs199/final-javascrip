@@ -13,8 +13,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const locationFilterSelect = document.getElementById('location-filter-select');
     const priceSortSelect = document.getElementById('price-sort-select');
 
-    let cart = [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    updateFavoriteCount();
+    updateCart(); // <-- Agrega esta línea aquí
 
     // Dark Mode Logic
     function enableDarkMode() {
@@ -172,6 +174,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 cartCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
             }
         }
+        // Actualiza el estado del botón de checkout
+        if (checkoutBtn) {
+            checkoutBtn.disabled = cart.length === 0;
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
     }
 
     // Event listener para remover del carrito y cambiar cantidad
