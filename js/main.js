@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function toggleFavorite(serviceId) {
-        const service = allServices.find(s => s.id === serviceId); // Use allServices here
+        const service = allServices.find(s => s.id === serviceId);
         if (!service) return;
 
         const index = favorites.findIndex(fav => fav.id === serviceId);
@@ -311,8 +311,9 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
         localStorage.setItem('favorites', JSON.stringify(favorites));
-        renderServices(allServices); // Re-render to update heart icons, use allServices
+        renderServices(allServices); // Actualiza los corazones en las tarjetas
         updateFavoriteCount();
+        renderFavorites(); // <-- Agrega esta línea para actualizar la lista visual del modal
     }
 
     // Función que filtra y ordena los servicios
@@ -401,3 +402,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+function removeFavorite(serviceId) {
+    favorites = favorites.filter(fav => fav.id !== serviceId);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    updateFavoriteCount();
+    showToast('Service removed from favorites');
+    renderFavorites(); // <-- Actualiza la lista visual
+}
