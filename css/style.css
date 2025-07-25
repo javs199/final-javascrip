@@ -1521,9 +1521,19 @@ body {
 }
 .travelers-section .services-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr); /* Default for mobile */
   gap: 2rem;
   padding: 1rem;
+}
+@media (min-width: 768px) {
+  .travelers-section .services-container {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+  }
+}
+@media (min-width: 992px) {
+  .travelers-section .services-container {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for desktops */
+  }
 }
 .travelers-section .services-container .service-card {
   background-color: rgba(255, 255, 255, 0.9);
