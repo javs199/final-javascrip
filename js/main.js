@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const favoritesModal = document.getElementById('favoritesModal');
     const favoriteItemsContainer = document.querySelector('.favorite-items');
     const noFavoritesMessage = document.querySelector('.no-favorites-message');
+    const serviceSearchInput = document.getElementById('service-search-input');
+    const locationFilterSelect = document.getElementById('location-filter-select');
+    const priceSortSelect = document.getElementById('price-sort-select');
 
     let cart = [];
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -303,6 +306,59 @@ document.addEventListener('DOMContentLoaded', function () {
         renderServices(allServices); // Re-render to update heart icons, use allServices
         updateFavoriteCount();
     }
+
+    // Función que filtra y ordena los servicios
+    function filterAndSortServices() {
+        let filtered = [...allServices];
+
+        // Filtro por búsqueda
+        const query = serviceSearchInput.value.trim().toLowerCase();
+        if (query) {
+            filtered = filtered.filter(service =>
+                service.name.toLowerCase().includes(query) ||
+                service.description.toLowerCase().includes(query)
+            );
+        }
+
+        // Filtro por ubicación
+        const location = locationFilterSelect.value;
+        if (location) {
+            filtered = filtered.filter(service => {
+                // Si el filtro es 'ambas', muestra solo los que tengan esa location
+                if (location === 'ambas') return service.location === 'ambas';
+                // Si el filtro es 'interior' o 'exterior', muestra los que coincidan o sean 'ambas'
+                return service.location === location || service.location === 'ambas';
+            });
+        }
+
+        // Orden por precio
+        if (priceSortSelect.value === 'asc') {
+            filtered.sort((a, b) => a.price - b.price);
+        } else if (priceSortSelect.value === 'desc') {
+            filtered.sort((a, b) => b.price - a.price);
+        }
+
+        renderServices(filtered);
+    }
+
+    // Listeners para los filtros y búsqueda
+    if (serviceSearchInput) {
+        serviceSearchInput.addEventListener('input', filterAndSortServices);
+    }
+    if (locationFilterSelect) {
+        locationFilterSelect.addEventListener('change', filterAndSortServices);
+    }
+    if (priceSortSelect) {
+        priceSortSelect.addEventListener('change', filterAndSortServices);
+    }
+
+    // Opcional: ejecuta el filtro al cargar los servicios
+    fetch('data/services.json')
+        .then(response => response.json())
+        .then(services => {
+            allServices = services;
+            filterAndSortServices();
+        });
 
     // Event listener para el checkout
     if(checkoutBtn){

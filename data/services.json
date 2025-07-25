@@ -1,10 +1,10 @@
-
 [
     {
         "id": "tours",
         "name": "Tours",
         "description": "Discover the best of Costa Rica with our customized tours. From waterfalls and jungles to whale watching and boat adventures — there's something for every kind of traveler.",
         "price": 75,
+        "location": "exterior",
         "icon": "recursos/tour_icon.png",
         "images": [
             "recursos/carruseles/tours/dolphin-1818853_1280.jpg",
@@ -18,6 +18,7 @@
         "name": "Surf Lessons",
         "description": "Learn to surf or improve your skills with certified local instructors. Sessions for all levels on the most iconic Pacific beaches.",
         "price": 60,
+        "location": "exterior",
         "icon": "recursos/5040775_athletic_exercise_game_sport_surf_icon.png",
         "images": [
             "recursos/carruseles/surf-lesson/beach-1838501_1280.jpg",
@@ -31,6 +32,7 @@
         "name": "Bike Rentals",
         "description": "Explore Uvita and its surroundings at your own pace. Rent a bike and enjoy nature, coastal paths, and nearby local towns.",
         "price": 25,
+        "location": "exterior",
         "icon": "recursos/2316017_activity_bike_bikes_outdoors_sports_icon.png",
         "images": [
             "recursos/carruseles/bike-rentals/bicycles-1867046_1280.jpg",
@@ -43,6 +45,7 @@
         "name": "Private Chef",
         "description": "Enjoy a unique dining experience from the comfort of your stay. Our private chef crafts local and international dishes tailored to your taste.",
         "price": 120,
+        "location": "interior",
         "icon": "recursos/chef_icon.png",
         "images": [
             "recursos/carruseles/private-chef/tiramisu-4055650_1280.jpg",
@@ -56,6 +59,7 @@
         "name": "Spa Session",
         "description": "Relax with in-home spa sessions including massages, facials, and more — all designed to refresh your body and mind.",
         "price": 90,
+        "location": "ambas",
         "icon": "recursos/spa_relax_icon.png",
         "images": [
             "recursos/carruseles/spa-session/Imagen de WhatsApp 2025-05-13 a las 15.18.58_f9749c39.jpg",
@@ -70,6 +74,7 @@
         "name": "Yoga Session",
         "description": "Reconnect with yourself in a natural setting. Private or group yoga classes available, perfect for all skill levels.",
         "price": 45,
+        "location": "ambas",
         "icon": "recursos/753880_pillates_exercise_fitness_pilates_strength_icon.png",
         "images": [
             "recursos/carruseles/yoga-session/yoga-4849683_1280.jpg",

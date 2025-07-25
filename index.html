@@ -25,6 +25,23 @@
                     <span>Kuwago</span>
                 </a>
 
+                <!-- Barra de búsqueda centrada -->
+                <form class="d-flex mx-auto" id="service-search-form" role="search" style="max-width:400px; flex:1;">
+                    <input class="form-control me-2" type="search" placeholder="Search services..." aria-label="Search" id="service-search-input">
+                    <select class="form-select me-2" id="location-filter-select" style="max-width:160px;">
+                        <option value="">All locations</option>
+                        <option value="interior">Indoor</option>
+                        <option value="exterior">Outdoor</option>
+                        <option value="ambas">Both</option>
+                    </select>
+                    <select class="form-select me-2" id="price-sort-select" style="max-width:160px;">
+                        <option value="">Sort by price</option>
+                        <option value="asc">Lowest price</option>
+                        <option value="desc">Highest price</option>
+                    </select>
+                    <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
