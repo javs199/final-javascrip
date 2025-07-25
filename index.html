@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuwago - Servicios para Viajeros</title>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="recursos/logo.png" alt="logo Kuwago" width="50" height="100" />
+                    <span>Kuwago</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Vacation Rentals</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Owners</a></li>
+                                <li><a class="dropdown-item active" href="#">Travelers</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link cart-icon" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                                <i class="bi bi-cart3"></i>
+                                <span class="cart-count">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="travelers-section">
+        <div class="container">
+            <h1>Our Services</h1>
+            <div class="services-container" id="services-container">
+                <!-- Services will be dynamically injected here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <nav>
+            <a href="#" class="footer-brand">
+                <img src="recursos/logo.png" alt="logo Kuwago" />
+                <span>Kuwago</span>
+            </a>
+            <section>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Vacation Rentals</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/grupokuwago/" target="_blank" rel="noopener noreferrer">Follow us on
+                            Instagram
+                            <img src="recursos/1161953_instagram_icon.png" alt="instagram icon"></a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/qr/GX66UFSRQ2K5G1" target="_blank" rel="noopener noreferrer">Message us on WhatsApp
+                            <img src="recursos/843786_whatsapp_icon.png" alt="whatsapp icon"></a>
+                    </li>
+                    <li>
+                        <a href="mailto:ch.jesus.99@gmailcom" target="_blank" rel="noopener noreferrer">Send us a Email
+                            <img src="recursos/8666723_mail_icon.png" alt="email icon"></a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+
+        <form class="formulario">
+            <label class="form" for="email">Subscribe to our newsletter:</label>
+            <input class="form" type="email" id="email" name="email" placeholder="Your email address" required />
+            <button class="form boton" type="submit">Subscribe</button>
+        </form>
+    </footer>
+
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="cart-items">
+                        <!-- Cart items will be dynamically injected here -->
+                    </div>
+                    <div class="cart-total">
+                        Total: $0.00
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary checkout-btn">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
